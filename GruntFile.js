@@ -21,21 +21,28 @@ module.exports = function(grunt) {
                     verbosity: 'quiet'
                 }
             }
-        }        
+        },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    src: 'dotnet/AutoChart.Sdk/bin/Release/*.dll',
+                    dest: 'dotnet/dist',
+                    flatten: true,
+                    filter: 'isFile'
+                }
+                ]
+            }
+            
+        } 
     });
 
     //Load 3rd party tasks
     grunt.loadNpmTasks('grunt-msbuild');
-
-    //Custom Tasks
-    grunt.registerTask('keensync', 'Keen Data Sync', function() {
-        var done = this.async();
-        var KeenSyncRunner = require('./' + keenWebJobDir + '/KeenSyncRunner');
-        new KeenSyncRunner().run(done);
-    } );
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // TASKS
-    grunt.registerTask('build', ['msbuild']);
+    grunt.registerTask('build', ['msbuild', 'copy']);
     grunt.registerTask('default', ['build']);
 
 };

@@ -1,6 +1,6 @@
 {
   "name": "autochart-sdk",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": ".NET SDK for AutoChart's REST API",
   "main": "index.js",
   "scripts": {
