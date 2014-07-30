@@ -1,0 +1,23 @@
+{
+  "name": "autochart-sdk",
+  "version": "1.0.0",
+  "description": ".NET SDK for AutoChart's REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WinterWindSoftware/autochart-sdk.git"
+  },
+  "author": "Paul Swail",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WinterWindSoftware/autochart-sdk/issues"
+  },
+  "homepage": "https://github.com/WinterWindSoftware/autochart-sdk",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-msbuild": "^0.2.2"
+  }
+}

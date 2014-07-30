@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AutoChart.Sdk")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Client library for fetching data from AutoChart")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Winter Wind Software Ltd")]
 [assembly: AssemblyProduct("AutoChart.Sdk")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
