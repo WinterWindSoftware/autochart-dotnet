@@ -7,7 +7,7 @@ namespace SdkTests
     [TestClass]
     public class VisitorServiceTests
     {
-        private const string API_READ_KEY = "01234567890123456789";
+        private const string API_READ_KEY = "rk_012345678901234567890123";
         private const string TEST_API_URL = "http://dev.portal.autochart.io/api";
 
         [TestMethod]
