@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoChart.Sdk", "AutoChart.Sdk\AutoChart.Sdk.csproj", "{66F23930-9FC1-4811-9056-CBFAA74EF7ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdkTests", "SdkTests\SdkTests.csproj", "{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{66F23930-9FC1-4811-9056-CBFAA74EF7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F23930-9FC1-4811-9056-CBFAA74EF7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F23930-9FC1-4811-9056-CBFAA74EF7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

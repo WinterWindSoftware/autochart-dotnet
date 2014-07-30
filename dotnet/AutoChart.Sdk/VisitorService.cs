@@ -5,7 +5,16 @@ using System.Text;
 
 namespace AutoChart.Sdk
 {
-    class VisitorService
+    public class VisitorService
     {
+        public VisitorService()
+        {
+
+        }
+
+        public Visitor GetVisitorSummary(string visitorId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
