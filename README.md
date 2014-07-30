@@ -37,14 +37,14 @@ var visitorId = AutoChartHttpContext.Current().VisitorId;
 
 #### Fetching Visitor Summary Data
 ##### By Visitor ID
-If you already know the AutoChart VisitorId, then you can fetch the visitor data from AutoChart servers through the `GetVisitorSummary` method.
+If you already know the AutoChart VisitorId, then you can fetch the visitor data from AutoChart servers through the `GetVisitorSummary` method which returns a `VisitorSummary` object.
 ```csharp
 var svc = new VisitorService("rk_012345678901234567890123");
 var visitor = svc.GetVisitorSummary(visitorId);
 ```
 
 ##### By Visitor Email Address
-If you don't know the AutoChart VisitorId (e.g. for back-end visitor/lead management type web apps), then you can fetch visitor data using a known email address. This method will only work for visitors who have submitted lead enquiries on the website and included their email address as part of their contact info.
+If you don't know the AutoChart VisitorId (e.g. for back-end lead management type web apps), then you can fetch visitor data using a known email address. This method will only work for visitors who have submitted lead enquiries on the website and included their email address as part of their contact info.
 
 ```csharp
 var email = "test@example.com";
@@ -53,4 +53,5 @@ var visitor = svc.GetVisitorSummaryByEmail(email);
 ```
 
 #### Using the Visitor Summary Data in your website/app
-TODO
+Once you've fetched the VisitorSummary data, you can use it however you like simply by accessing the properties on the object.
+In order to see what data is available to you, check out the source for the [DataModels.cs](dotnet/AutoChart.Sdk/DataModels.cs) file.
