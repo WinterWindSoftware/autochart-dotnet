@@ -17,8 +17,11 @@ namespace AutoChart.Sdk
 
         public static AutoChartHttpContext Current()
         {
-            //TODO: read from cookie
-            return new AutoChartHttpContext();
+            //TODO: read from cookie rather than hardcoded values
+            return new AutoChartHttpContext() {
+                VisitorId = "53cf8ee65f9c61490c000001",
+                SessionId = "53d0d26a5f9c614884000000"
+            };
         }
     }
 }
