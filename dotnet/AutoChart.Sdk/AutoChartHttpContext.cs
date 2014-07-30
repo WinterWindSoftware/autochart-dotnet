@@ -12,8 +12,8 @@ namespace AutoChart.Sdk
     {
         private AutoChartHttpContext() { }
 
-        public string VisitorId { get; set; }
-        public string SessionId { get; set; }
+        public string VisitorId { get; private set; }
+        public string SessionId { get; private set; }
 
         public static AutoChartHttpContext Load()
         {
