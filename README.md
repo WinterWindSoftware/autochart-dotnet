@@ -11,7 +11,7 @@ The SDK was written for .NET v3.5 and above.
 
 ### Installation
 
-1. Download the built AutoChart.Sdk.dll (TODO: add URL of build DLL)
+1. Download the latest build of the AutoChart.Sdk.dll [from here](raw/master/dotnet/dist/AutoChart.Sdk.dll)
 2. Add reference to this DLL to your project
 
 ### Authenticating
