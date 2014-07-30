@@ -10,9 +10,9 @@ namespace SdkTests
         [TestMethod]
         public void TestGetVisitor()
         {
-            var context = AutoChartVisitorContext.Load();
+            var context = AutoChartHttpContext.Load();
             var svc = new VisitorService();
-            var visitor = svc.GetVisitorSummary(context.VisitorId); 
+            var visitor = svc.GetVisitorSummary(context.VisitorId);
         }
     }
 }
