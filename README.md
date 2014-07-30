@@ -5,6 +5,7 @@ This repo contains SDK libraries for working with the REST API of [AutoChart](ht
 
 ## .NET SDK
 The AutoChart .NET SDK allows developers to access AutoChart's visitor data through an easy-to-use strongly typed interface.
+    **  The initial version (0.1.0) of the .NET SDK is purely a skeleton interface and does not communicate with the AutoChart servers or return any data. **
 
 ### Requirements
 The SDK was written for .NET v3.5 and above.
