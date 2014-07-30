@@ -15,7 +15,7 @@ The AutoChart .NET SDK allows developers to access AutoChart's visitor data thro
 #### Authenticating
 You need to pass the **API Read Key** of your AutoChart account in order to be able to authenticate with the AutoChart servers, like so:
 
-` var svc = new VisitorService("rk_012345678901234567890123");
+` var svc = new VisitorService("rk_012345678901234567890123"); `
 
 You can access this key in the Account Settings page of the [AutoChart portal](https://portal.autochart.io).
 
