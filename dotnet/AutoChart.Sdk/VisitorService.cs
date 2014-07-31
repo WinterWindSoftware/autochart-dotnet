@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,8 @@ namespace AutoChart.Sdk
         private readonly string _apiRootUrl;
         private readonly string _apiReadKey;
 
+        private WebClient _webClient;
+
         public VisitorService(string apiReadKey) : this(apiReadKey, DEFAULT_API_ROOT_URL)
         {
         }
@@ -30,6 +33,19 @@ namespace AutoChart.Sdk
             }
             _apiRootUrl = apiRootUrl;
             _apiReadKey = apiReadKey;
+            this.Authenticate();
+        }
+
+        public void Authenticate()
+        {
+            var url = string.Format("{0}/authenticate", _apiRootUrl);
+            var postVars = new NameValueCollection();
+            postVars.Add("apikey", _apiReadKey);
+            using (var client = GetWebClient())
+            {
+                var responseBytes = client.UploadValues(url, "POST", postVars);
+                var jsonString = new UTF8Encoding().GetString(responseBytes);
+            }
         }
 
         public VisitorSummary GetVisitorSummary(string visitorId)
@@ -38,15 +54,14 @@ namespace AutoChart.Sdk
             {
                 throw new ArgumentException("visitorId must be specified");
             }
-            //var url = string.Format("{0}/visitors/{1}/summary", _apiRootUrl, visitorId);
-            //using (var client = new WebClient())
-            //{                
-            //    client.Headers.Add ("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
-            //    var data = client.OpenRead(url);
-            //    var reader = new StreamReader(data);
-            //    var json = reader.ReadToEnd();
-            //    //TODO: complete implementation of this by mapping JSON into VisitorSummary object.
-            //}
+            var url = string.Format("{0}/visitors/{1}/summary", _apiRootUrl, visitorId);
+            using (var client = GetWebClient())
+            {
+                var data = client.OpenRead(url);
+                var reader = new StreamReader(data);
+                var json = reader.ReadToEnd();
+                //TODO: complete implementation of this by mapping JSON into VisitorSummary object.
+            }
             return new VisitorSummary();
         }
 
@@ -58,6 +73,39 @@ namespace AutoChart.Sdk
             }
             //TODO: implement
             return new VisitorSummary();
+        }
+
+
+        private WebClient GetWebClient()
+        {
+            if(_webClient == null)
+            {
+                _webClient = new CookieAwareWebClient();
+            }
+            _webClient.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
+            return _webClient;
+        }
+    }
+
+    internal class CookieAwareWebClient : WebClient
+    {
+        private CookieContainer cc = new CookieContainer();
+        private string lastPage;
+
+        protected override WebRequest GetWebRequest(System.Uri address)
+        {
+            WebRequest R = base.GetWebRequest(address);
+            if (R is HttpWebRequest)
+            {
+                HttpWebRequest WR = (HttpWebRequest)R;
+                WR.CookieContainer = cc;
+                if (lastPage != null)
+                {
+                    WR.Referer = lastPage;
+                }
+            }
+            lastPage = address.ToString();
+            return R;
         }
     }
 }
