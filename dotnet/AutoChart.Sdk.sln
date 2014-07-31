@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoChart.Sdk", "AutoChart.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdkTests", "SdkTests\SdkTests.csproj", "{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebsite", "SampleWebsite\SampleWebsite.csproj", "{45661E41-A872-457C-BC40-7CD7412BEF56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EECB1312-E2E5-47F9-86EC-0789A17AEDF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45661E41-A872-457C-BC40-7CD7412BEF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45661E41-A872-457C-BC40-7CD7412BEF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45661E41-A872-457C-BC40-7CD7412BEF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45661E41-A872-457C-BC40-7CD7412BEF56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
