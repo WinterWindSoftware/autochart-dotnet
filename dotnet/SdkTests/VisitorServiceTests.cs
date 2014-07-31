@@ -17,6 +17,7 @@ namespace SdkTests
             var svc = new VisitorService(API_READ_KEY, TEST_API_URL);
             var visitor = svc.GetVisitorSummary(visitorId);
             Assert.IsNotNull(visitor);
+            Assert.AreEqual(visitorId, visitor.Id);
         }
 
         [TestMethod]

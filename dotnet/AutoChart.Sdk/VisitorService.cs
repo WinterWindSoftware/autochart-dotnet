@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Collections.Specialized;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace AutoChart.Sdk
 {
@@ -43,8 +42,8 @@ namespace AutoChart.Sdk
             postVars.Add("apikey", _apiReadKey);
             using (var client = GetWebClient())
             {
-                var responseBytes = client.UploadValues(url, "POST", postVars);
-                var jsonString = new UTF8Encoding().GetString(responseBytes);
+                client.UploadValues(url, "POST", postVars);
+                //If no error thrown, we're 200 OK, and a cookie will have been sent in response
             }
         }
 
@@ -55,14 +54,27 @@ namespace AutoChart.Sdk
                 throw new ArgumentException("visitorId must be specified");
             }
             var url = string.Format("{0}/visitors/{1}/summary", _apiRootUrl, visitorId);
+            VisitorSummary visitor;
             using (var client = GetWebClient())
             {
                 var data = client.OpenRead(url);
                 var reader = new StreamReader(data);
                 var json = reader.ReadToEnd();
-                //TODO: complete implementation of this by mapping JSON into VisitorSummary object.
+                visitor = JsonConvert.DeserializeObject<ApiResultWrapper<VisitorSummary>>(json).result;
             }
-            return new VisitorSummary();
+            //Populate calculated fields
+            if (visitor.Leads!=null && visitor.Leads.Count > 0)
+            {
+                visitor.EmailAddress = visitor.Leads[visitor.Leads.Count - 1].EmailAddress;
+                visitor.PhoneNumber = visitor.Leads[visitor.Leads.Count - 1].PhoneNumber;
+            }
+            if (visitor.Sessions!= null && visitor.Sessions.Count > 0)
+            {
+                //Sessions order by most recent first
+                visitor.FirstSeen = visitor.Sessions[visitor.Sessions.Count - 1].StartTime;
+                visitor.LastActive = visitor.Sessions[0].LastActionTime;
+            }
+            return visitor;
         }
 
         public VisitorSummary GetVisitorSummaryByEmail(string email)
@@ -85,6 +97,11 @@ namespace AutoChart.Sdk
             _webClient.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
             return _webClient;
         }
+    }
+
+    internal class ApiResultWrapper<T>
+    {
+        public T result { get; set; }
     }
 
     internal class CookieAwareWebClient : WebClient
