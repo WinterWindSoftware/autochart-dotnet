@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoChart.Sdk;
 
 namespace SampleWebsite.Controllers
 {
@@ -10,8 +11,9 @@ namespace SampleWebsite.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.VisitorId = "notset";
-            ViewBag.SessionId = "notset";
+            var acContext = AutoChartHttpContext.Current();
+            ViewBag.VisitorId = acContext.VisitorId;
+            ViewBag.SessionId = acContext.SessionId;
             return View();
         }
     }
