@@ -53,6 +53,16 @@ namespace AutoChart.Sdk
         /// </summary>
         public List<VehicleView> VehicleViews { get; set; }
 
+        /// <summary>
+        /// Email address provided in the most recent lead submitted by this visitor.
+        /// </summary>
+        public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Phone number provided in the most recent lead submitted by this visitor.
+        /// </summary>
+        public string PhoneNumber { get; set; }
+
     }
 
     /// <summary>
@@ -86,6 +96,10 @@ namespace AutoChart.Sdk
         /// Will be null if this is a general enquiry.
         /// </summary>
         public Vehicle Vehicle { get; set; }
+
+        public string EmailAddress { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 
     /// <summary>
