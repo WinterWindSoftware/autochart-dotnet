@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace AutoChart.Sdk
 {
@@ -28,11 +29,25 @@ namespace AutoChart.Sdk
             var ctx = HttpContext.Current;
             if(ctx != null)
             {
-            //TODO: read from cookie rather than hardcoded values
-                //ctx.Request.Cookies.
+                VisitorId = GetCookieIdValue("ac_visitor", ctx);
+                SessionId = GetCookieIdValue("ac_session", ctx);
             }
-            VisitorId = "53cf8ee65f9c61490c000001";
-            SessionId = "53d0d26a5f9c614884000000";
         }
+
+        private static string GetCookieIdValue(string name, HttpContext ctx)
+        {
+            var cookie = ctx.Request.Cookies.Get(name);
+            if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
+            {
+                return JsonConvert.DeserializeObject<AutoChartCookieContents>(HttpUtility.UrlDecode(cookie.Value)).Id;
+            }
+            return null;
+        }
+    }
+
+    public class AutoChartCookieContents
+    {
+        public string Id { get; set; }
+        public DateTime StartTime { get; set; }
     }
 }

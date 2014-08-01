@@ -28,13 +28,5 @@ namespace SdkTests
             var visitor = svc.GetVisitorSummaryByEmail(email);
             Assert.IsNotNull(visitor);
         }
-
-        [TestMethod]
-        public void Test_GetVisitorByIdFromContext()
-        {
-            var svc = new VisitorService(API_READ_KEY, TEST_API_URL);
-            var visitor = svc.GetVisitorSummary(AutoChartHttpContext.Current().VisitorId);
-            Assert.IsNotNull(visitor);
-        }
     }
 }
