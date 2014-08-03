@@ -18,6 +18,11 @@ namespace SdkTests
             var visitor = svc.GetVisitorSummary(visitorId);
             Assert.IsNotNull(visitor);
             Assert.AreEqual(visitorId, visitor.VisitorId);
+            var latestSearch = visitor.GetLatestSearch();
+            Assert.IsNotNull(latestSearch);
+            var latestLead = visitor.GetLatestLead();
+            Assert.IsNotNull(latestLead);
+
         }
 
         [TestMethod]

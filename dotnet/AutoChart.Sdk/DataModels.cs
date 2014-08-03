@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace AutoChart.Sdk
@@ -57,6 +58,30 @@ namespace AutoChart.Sdk
         /// Contact info provided in the most recent lead submitted by this visitor.
         /// </summary>
         public ContactInfo Contact { get; set; }
+
+        /// <summary>
+        /// Helper method for fetching the most recent search performed by this visitor.
+        /// </summary>
+        public VehicleSearch GetLatestSearch()
+        {
+            if(this.Searches != null)
+            {
+                return this.Searches.OrderByDescending(s => s.Timestamp).FirstOrDefault();
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Helper method for fetching the most recent lead enquiry submitted by this visitor.
+        /// </summary>
+        public LeadEnquiry GetLatestLead()
+        {
+            if (this.Leads != null)
+            {
+                return this.Leads.OrderByDescending(s => s.Timestamp).FirstOrDefault();
+            }
+            return null;
+        }
     }
 
     public class ContactInfo
@@ -64,6 +89,7 @@ namespace AutoChart.Sdk
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string Address { get; set; }
     }
 
     /// <summary>
@@ -76,7 +102,7 @@ namespace AutoChart.Sdk
         /// <summary>
         /// Time the enquiry was sent.
         /// </summary>
-        public DateTime SentDate { get; set; }
+        public DateTime Timestamp { get; set; }
         /// <summary>
         /// Subject of the enquiry, e.g
         /// </summary>
