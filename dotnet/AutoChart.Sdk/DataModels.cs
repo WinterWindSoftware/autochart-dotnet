@@ -11,7 +11,7 @@ namespace AutoChart.Sdk
         /// <summary>
         /// Unique ID of visitor
         /// </summary>
-        public string Id { get; set; }
+        public string VisitorId { get; set; }
 
         /// <summary>
         /// Date visitor first visited site.
@@ -29,19 +29,19 @@ namespace AutoChart.Sdk
         public List<Session> Sessions { get; set; }
 
         /// <summary>
-        /// Last search that this visitor performed
+        /// Searches that this visitor performed
         /// </summary>
-        public SearchCriteria LastSearch { get; set; }
+        public List<VehicleSearch> Searches { get; set; }
 
         /// <summary>
         /// Tags which have been attributed to this visitor.
         /// </summary>
-        public List<string> Tags { get; set; }
+        public List<VisitorTag> Tags { get; set; }
 
         /// <summary>
         /// Purchase/visit intent actions which this visitor has taken, e.g. "Directions" or "Opening Hours"
         /// </summary>
-        public List<string> VisitIntents { get; set; }
+        public List<VisitIntent> VisitIntents { get; set; }
 
         /// <summary>
         /// Leads submitted by this visitor
@@ -54,15 +54,16 @@ namespace AutoChart.Sdk
         public List<VehicleView> VehicleViews { get; set; }
 
         /// <summary>
-        /// Email address provided in the most recent lead submitted by this visitor.
+        /// Contact info provided in the most recent lead submitted by this visitor.
         /// </summary>
-        public string EmailAddress { get; set; }
+        public ContactInfo Contact { get; set; }
+    }
 
-        /// <summary>
-        /// Phone number provided in the most recent lead submitted by this visitor.
-        /// </summary>
-        public string PhoneNumber { get; set; }
-
+    public class ContactInfo
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
     }
 
     /// <summary>
@@ -100,6 +101,21 @@ namespace AutoChart.Sdk
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }
+    }
+
+    public class VisitIntent
+    {
+        public DateTime Timestamp { get; set; }
+        public string IntentAction { get; set; }
+        public string Url { get; set; }
+    }
+
+
+    public class VisitorTag
+    {
+        public DateTime Timestamp { get; set; }
+        public string Tag { get; set; }
+        public string Url { get; set; }
     }
 
     /// <summary>
@@ -150,14 +166,15 @@ namespace AutoChart.Sdk
         public Vehicle Vehicle { get; set; }
 
         /// <summary>
-        /// Number of times vehicle was viewed.
+        /// Time this vehicle was viewed
         /// </summary>
-        public int ViewCount { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
 
-        /// <summary>
-        /// Time this vehicle was last viewed
-        /// </summary>
-        public DateTime LastViewTime { get; set; }
+    public class VehicleSearch
+    {
+        public DateTime Timestamp { get; set; }
+        public SearchCriteria Criteria { get; set; }
     }
 
     /// <summary>

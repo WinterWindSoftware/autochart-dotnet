@@ -62,18 +62,6 @@ namespace AutoChart.Sdk
                 var json = reader.ReadToEnd();
                 visitor = JsonConvert.DeserializeObject<ApiResultWrapper<VisitorSummary>>(json).result;
             }
-            //Populate calculated fields
-            if (visitor.Leads!=null && visitor.Leads.Count > 0)
-            {
-                visitor.EmailAddress = visitor.Leads[visitor.Leads.Count - 1].EmailAddress;
-                visitor.PhoneNumber = visitor.Leads[visitor.Leads.Count - 1].PhoneNumber;
-            }
-            if (visitor.Sessions!= null && visitor.Sessions.Count > 0)
-            {
-                //Sessions order by most recent first
-                visitor.FirstSeen = visitor.Sessions[visitor.Sessions.Count - 1].StartTime;
-                visitor.LastActive = visitor.Sessions[0].LastActionTime;
-            }
             return visitor;
         }
 
