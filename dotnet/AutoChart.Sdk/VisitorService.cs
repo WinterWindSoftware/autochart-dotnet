@@ -13,10 +13,12 @@ namespace AutoChart.Sdk
     /// </summary>
     public class VisitorService
     {
-        const string DEFAULT_API_ROOT_URL = "https://portal.autochart.io/api";
+        const string DEFAULT_API_ROOT_URL = "https://portal.autochart.io/api/1";
 
         private readonly string _apiRootUrl;
         private readonly string _apiReadKey;
+
+        private string _accountId = "0";
 
         private WebClient _webClient;
 
@@ -53,7 +55,7 @@ namespace AutoChart.Sdk
             {
                 throw new ArgumentException("visitorId must be specified");
             }
-            var url = string.Format("{0}/visitors/{1}/summary", _apiRootUrl, visitorId);
+            var url = string.Format("{0}/accounts/{1}/visitors/{2}/summary", _apiRootUrl, _accountId, visitorId);
             VisitorSummary visitor;
             using (var client = GetWebClient())
             {
