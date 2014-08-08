@@ -51,7 +51,7 @@ If you don't know the AutoChart VisitorId (e.g. for back-end lead management typ
 ```csharp
 var email = "test@example.com";
 var svc = new VisitorService("rk_012345678901234567890123");
-var visitor = svc.GetVisitorSummaryByEmail(email);
+var matchingVisitors = svc.GetVisitorsByEmail(email);
 ```
 
 ### Using the Visitor Summary Data in your website/app

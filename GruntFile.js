@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         msbuild: {
             dist: {
-                src: ['dotnet/AutoChart.Sdk.sln'],
+                src: ['dotnet/AutoChart.Sdk/AutoChart.Sdk.csproj'],
                 options: {
                     projectConfiguration: 'Release',
                     targets: ['Clean', 'Rebuild'],
