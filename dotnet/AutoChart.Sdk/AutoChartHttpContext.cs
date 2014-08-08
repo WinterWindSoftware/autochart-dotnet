@@ -14,9 +14,19 @@ namespace AutoChart.Sdk
     {
         private AutoChartHttpContext() { }
 
+        /// <summary>
+        /// Unique ID generated for visitor. Fetched from long-term persistent cookie.
+        /// </summary>
         public string VisitorId { get; private set; }
+
+        /// <summary>
+        /// Unique ID generated for the current visitor session. Fetched from session-only cookie.
+        /// </summary>
         public string SessionId { get; private set; }
 
+        /// <summary>
+        /// Gets the current context from cookies available in the HTTP request.
+        /// </summary>
         public static AutoChartHttpContext Current()
         {
             var current = new AutoChartHttpContext();

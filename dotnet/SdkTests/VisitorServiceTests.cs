@@ -22,16 +22,16 @@ namespace SdkTests
             Assert.IsNotNull(latestSearch);
             var latestLead = visitor.GetLatestLead();
             Assert.IsNotNull(latestLead);
-
         }
 
         [TestMethod]
         public void Test_GetVisitorByEmail()
         {
-            var email = "test@autochart.io";
+            var email = "test@example.com";
             var svc = new VisitorService(API_READ_KEY, TEST_API_URL);
-            var visitor = svc.GetVisitorSummaryByEmail(email);
-            Assert.IsNotNull(visitor);
+            var visitors = svc.GetVisitorsByEmail(email);
+            Assert.IsNotNull(visitors);
+            Assert.IsTrue(visitors.Length > 0);
         }
     }
 }

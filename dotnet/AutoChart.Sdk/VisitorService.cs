@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace AutoChart.Sdk
 {
@@ -22,10 +23,19 @@ namespace AutoChart.Sdk
 
         private WebClient _webClient;
 
+        /// <summary>
+        /// Create new VisitorService
+        /// </summary>
+        /// <param name="apiReadKey">27 character api read key for the AutoChart account you want to connect to</param>
         public VisitorService(string apiReadKey) : this(apiReadKey, DEFAULT_API_ROOT_URL)
         {
         }
 
+        /// <summary>
+        /// Create new VisitorService
+        /// </summary>
+        /// <param name="apiReadKey">27 character api read key for the AutoChart account you want to connect to</param>
+        /// <param name="apiRootUrl">Base URL of AutoChart API</param>
         public VisitorService(string apiReadKey, string apiRootUrl)
         {
             if(string.IsNullOrEmpty(apiReadKey))
@@ -37,6 +47,17 @@ namespace AutoChart.Sdk
             this.Authenticate();
         }
 
+        private string BaseUrl
+        {
+            get
+            {
+                return string.Format("{0}/accounts/{1}", _apiRootUrl, _accountId);
+            }
+        }
+
+        /// <summary>
+        /// Creates a new session.
+        /// </summary>
         public void Authenticate()
         {
             var url = string.Format("{0}/authenticate", _apiRootUrl);
@@ -49,13 +70,17 @@ namespace AutoChart.Sdk
             }
         }
 
+        /// <summary>
+        /// Fetches details from AutoChart for a single visitor using the visitor ID.
+        /// </summary>
+        /// <param name="visitorId">24 character hex visitorID</param>
         public VisitorSummary GetVisitorSummary(string visitorId)
         {
             if(string.IsNullOrEmpty(visitorId))
             {
                 throw new ArgumentException("visitorId must be specified");
             }
-            var url = string.Format("{0}/accounts/{1}/visitors/{2}/summary", _apiRootUrl, _accountId, visitorId);
+            var url = string.Format("{0}/visitors/{1}/summary", BaseUrl, visitorId);
             VisitorSummary visitor;
             using (var client = GetWebClient())
             {
@@ -67,14 +92,27 @@ namespace AutoChart.Sdk
             return visitor;
         }
 
-        public VisitorSummary GetVisitorSummaryByEmail(string email)
+        /// <summary>
+        /// Searches AutoChart for visitors with matching email address.
+        /// </summary>
+        /// <param name="email">Email to search for</param>
+        /// <returns></returns>
+        public VisitorSummary[] GetVisitorsByEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
             {
                 throw new ArgumentException("email must be specified");
             }
-            //TODO: implement
-            return new VisitorSummary();
+            var url = string.Format("{0}/visitors?email={1}", BaseUrl, email);
+            VisitorSummary[] visitors;
+            using (var client = GetWebClient())
+            {
+                var data = client.OpenRead(url);
+                var reader = new StreamReader(data);
+                var json = reader.ReadToEnd();
+                visitors = JsonConvert.DeserializeObject<ApiResultWrapper<VisitorSummary[]>>(json).result;
+            }
+            return visitors;
         }
 
 
@@ -94,6 +132,10 @@ namespace AutoChart.Sdk
         public T result { get; set; }
     }
 
+    /// <summary>
+    /// Helper class for ensuring auth session cookie gets passed
+    /// to subsequent requests after call to 'authenticate'.
+    /// </summary>
     internal class CookieAwareWebClient : WebClient
     {
         private CookieContainer cc = new CookieContainer();
