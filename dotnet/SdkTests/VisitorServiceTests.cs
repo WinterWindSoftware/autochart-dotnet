@@ -7,13 +7,13 @@ namespace SdkTests
     [TestClass]
     public class VisitorServiceTests
     {
-        private const string API_READ_KEY = "rk_012345678901234567890123";
-        private const string TEST_API_URL = "http://dev.portal.autochart.io/api/1";
+        private const string API_READ_KEY = "rk_30946e70413f40a7a38f875f1717b1d5";
+        private const string TEST_API_URL = "https://portal.autochart.io/api/1"; // "http://dev.portal.autochart.io/api/1";
 
         [TestMethod]
         public void Test_GetVisitorById()
         {
-            var visitorId = "53cf8ee65f9c61490c000001";
+            var visitorId = "53eb6f208074fd5c417b1620";
             var svc = new VisitorService(API_READ_KEY, TEST_API_URL);
             var visitor = svc.GetVisitorSummary(visitorId);
             Assert.IsNotNull(visitor);
@@ -27,7 +27,7 @@ namespace SdkTests
         [TestMethod]
         public void Test_GetVisitorByEmail()
         {
-            var email = "test@example.com";
+            var email = "lizziehaynes@zisis.com";
             var svc = new VisitorService(API_READ_KEY, TEST_API_URL);
             var visitors = svc.GetVisitorsByEmail(email);
             Assert.IsNotNull(visitors);

@@ -23,7 +23,7 @@ using AutoChart.Sdk;
 
 ...
 
-var svc = new VisitorService("rk_012345678901234567890123"); 
+var svc = new VisitorService("rk_30946e70413f40a7a38f875f1717b1d5"); 
 
 ``` 
 
@@ -41,7 +41,8 @@ var visitorId = AutoChartHttpContext.Current().VisitorId;
 #### By Visitor ID
 If you already know the AutoChart VisitorId, then you can fetch the visitor data from AutoChart servers through the `GetVisitorSummary` method which returns a `VisitorSummary` object.
 ```csharp
-var svc = new VisitorService("rk_012345678901234567890123");
+var visitorId = "53eb6f208074fd5c417b1620";
+var svc = new VisitorService("rk_30946e70413f40a7a38f875f1717b1d5");
 var visitor = svc.GetVisitorSummary(visitorId);
 ```
 
@@ -49,8 +50,8 @@ var visitor = svc.GetVisitorSummary(visitorId);
 If you don't know the AutoChart VisitorId (e.g. for back-end lead management type web apps), then you can fetch visitor data using a known email address. This method will only work for visitors who have submitted lead enquiries on the website and included their email address as part of their contact info.
 
 ```csharp
-var email = "test@example.com";
-var svc = new VisitorService("rk_012345678901234567890123");
+var email = "lizziehaynes@zisis.com";
+var svc = new VisitorService("rk_30946e70413f40a7a38f875f1717b1d5");
 var matchingVisitors = svc.GetVisitorsByEmail(email);
 ```
 
