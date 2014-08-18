@@ -11,8 +11,10 @@ The SDK was written for .NET v3.5 and above.
 
 ### Installation
 
-1. Download the latest build of the AutoChart.Sdk.dll [from here](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/AutoChart.Sdk.dll?raw=true).
-2. Add reference to this DLL to your project.
+1. Download the following 2 files to your local machine:
+    * [AutoChart.Sdk.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/AutoChart.Sdk.dll?raw=true)
+    * [Newtonsoft.Json.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/Newtonsoft.Json.dll?raw=true)
+2. Add reference to the AutoChart.Sdk.dll to your project.
 
 ### Authenticating
 The `VisitorService` class acts as the main interface to the AutoChart API.
