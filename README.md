@@ -1,21 +1,19 @@
-AutoChart SDK Libraries
-=======================
+# AutoChart .NET SDK
 
-This repo contains SDK libraries for working with the REST API of [AutoChart](http://autochart.io) - a real-time customer analytics solution for automotive websites.
+The [AutoChart](http://autochart.io) .NET SDK allows developers to access AutoChart's visitor data through an easy-to-use strongly typed interface. Under the hood, the library talks to AutoChart's REST API over HTTPS.
+Currently it only supports reading data back from AutoChart. If you want to send tracking data _to_ AutoChart, use the [JavaScript API](https://github.com/AutoChart/autochart-js).
 
-## .NET SDK
-The AutoChart .NET SDK allows developers to access AutoChart's visitor data through an easy-to-use strongly typed interface.
-
-### Requirements
+## Requirements
 The SDK was written for .NET v3.5 and above.
 
-### Installation
+## Installation
 
 1. Download the following 2 files to your local machine:
     * [AutoChart.Sdk.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/AutoChart.Sdk.dll?raw=true)
     * [Newtonsoft.Json.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/Newtonsoft.Json.dll?raw=true)
 2. Add reference to the AutoChart.Sdk.dll to your project.
 
+## Usage
 ### Authenticating
 The `VisitorService` class acts as the main interface to the AutoChart API.
 In order for it to authenticate with the AutoChart servers, you need to pass the **API Read Key** of your AutoChart account into the constructor, like so:
