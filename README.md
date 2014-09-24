@@ -11,7 +11,7 @@ To install AutoChart.Sdk, run the following command in the Package Manager Conso
 `
 Install-Package AutoChart.Sdk
 `
-This will add a reference to the AutoChart.Sdk.dll and its dependencies to your Visual Studio project.
+This will add a reference to the latest version of AutoChart.Sdk.dll and its dependencies to your Visual Studio project.
 
 ## Usage
 ### Authenticating
