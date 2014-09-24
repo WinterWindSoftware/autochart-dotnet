@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        clean: ['dist'],
         assemblyinfo: {
             options: {
                 files: ['v3.5/AutoChart.Sdk/Properties/AssemblyInfo.cs'],
@@ -81,7 +82,7 @@ module.exports = function(grunt) {
 
     // TASKS
     grunt.registerTask('build', ['copy:assemblyinfo', 'assemblyinfo', 'msbuild']);
-    grunt.registerTask('dist', ['build', 'nugetpack']);
+    grunt.registerTask('dist', ['build', 'clean', 'nugetpack']);
     grunt.registerTask('default', ['build']);
 
 };
