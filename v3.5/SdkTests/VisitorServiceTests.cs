@@ -1,16 +1,16 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using AutoChart.Sdk;
 
 namespace SdkTests
 {
-    [TestClass]
+    [TestFixture]
     public class VisitorServiceTests
     {
         private const string API_READ_KEY = "rk_30946e70413f40a7a38f875f1717b1d5";
         private const string TEST_API_URL = "https://portal.autochart.io/api/1"; // "http://dev.portal.autochart.io/api/1";
 
-        [TestMethod]
+        [Test]
         public void Test_GetVisitorById()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
@@ -24,7 +24,7 @@ namespace SdkTests
             Assert.IsNotNull(latestLead);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_GetVisitorByEmail()
         {
             var email = "lizziehaynes@zisis.com";

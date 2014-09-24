@@ -51,6 +51,14 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        nunit: {
+            test: {
+                files: {
+                    src: ['v3.5/SdkTests/SdkTests.csproj']
+                }
+            },
+            options: {}
+        },
         nugetpack: {
             dist: {
                 src: 'v3.5/AutoChart.Sdk/AutoChart.Sdk.csproj',
