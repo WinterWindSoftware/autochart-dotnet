@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AutoChart.Sdk</id>
+    <version>$version$</version>
+    <title>AutoChart.Sdk</title>
+    <authors>Paul Swail</authors>
+    <owners>AutoChart</owners>
+    <licenseUrl>https://github.com/AutoChart/autochart-dotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/AutoChart/autochart-dotnet</projectUrl>
+    <iconUrl>https://avatars1.githubusercontent.com/u/7312364?v=2&amp;s=200</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET client library for fetching data from AutoChart REST API</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>automotive analytics</tags>
+  </metadata>
+</package>

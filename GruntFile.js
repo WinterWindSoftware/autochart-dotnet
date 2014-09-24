@@ -58,11 +58,21 @@ module.exports = function(grunt) {
                     filter: 'isFile'
                 }]
             }
+        },
+        nugetpack: {
+            dist: {
+                src: 'v3.5/AutoChart.Sdk/AutoChart.Sdk.csproj',
+                dest: 'dist/',
+                options: {
+                    version: '<%=pkg.version%>'
+                }
+            }
         }
     });
 
     // TASKS
-    grunt.registerTask('build', ['copy:assemblyinfo', 'assemblyinfo', 'msbuild', 'copy:dist']);
+    grunt.registerTask('build', ['copy:assemblyinfo', 'assemblyinfo', 'msbuild']);
+    grunt.registerTask('dist', ['build', 'nugetpack']);
     grunt.registerTask('default', ['build']);
 
 };
