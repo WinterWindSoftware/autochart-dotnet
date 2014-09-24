@@ -52,7 +52,7 @@ module.exports = function(grunt) {
     });
 
     // TASKS
-    grunt.registerTask('build', ['msbuild', 'copy']);
+    grunt.registerTask('build', ['assemblyinfo', 'msbuild', 'copy']);
     grunt.registerTask('default', ['build']);
 
 };
