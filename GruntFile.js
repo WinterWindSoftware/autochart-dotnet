@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         msbuild: {
             dist: {
-                src: ['dotnet/AutoChart.Sdk/AutoChart.Sdk.csproj'],
+                src: ['v3.5/AutoChart.Sdk/AutoChart.Sdk.csproj'],
                 options: {
                     projectConfiguration: 'Release',
                     targets: ['Clean', 'Rebuild'],
@@ -26,8 +26,8 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    src: 'dotnet/AutoChart.Sdk/bin/Release/*.dll',
-                    dest: 'dotnet/dist',
+                    src: 'v3.5/AutoChart.Sdk/bin/Release/*.dll',
+                    dest: 'v3.5/dist',
                     flatten: true,
                     filter: 'isFile'
                 }
