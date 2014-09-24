@@ -1,11 +1,26 @@
 module.exports = function(grunt) {
+    require('load-grunt-tasks')(grunt);
 
     grunt.file.setBase(__dirname);
-    console.log("__dirname = " + __dirname);
 
-  // Project configuration.
+    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        assemblyinfo: {
+            options: {
+                files: ['v3.5/AutoChart.Sdk/Properties/AssemblyInfo.cs'],
+                info: {
+                    title: 'AutoChart.Sdk',
+                    description: 'Client library for fetching data from AutoChart REST API',
+                    configuration: 'Release',
+                    company: 'Winter Wind Software Ltd',
+                    product: 'AutoChart',
+                    copyright: 'Copyright 2014 Winter Wind Software Ltd',
+                    version: '<%=pkg.version%>',
+                    fileVersion: '<%=pkg.version%>'
+                }
+            }
+        },
         msbuild: {
             dist: {
                 src: ['v3.5/AutoChart.Sdk/AutoChart.Sdk.csproj'],
@@ -30,16 +45,11 @@ module.exports = function(grunt) {
                     dest: 'v3.5/dist',
                     flatten: true,
                     filter: 'isFile'
-                }
-                ]
+                }]
             }
-            
-        } 
-    });
 
-    //Load 3rd party tasks
-    grunt.loadNpmTasks('grunt-msbuild');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+        }
+    });
 
     // TASKS
     grunt.registerTask('build', ['msbuild', 'copy']);
