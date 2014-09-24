@@ -49,15 +49,6 @@ module.exports = function(grunt) {
                         return dest + src.replace('.sample', '');
                     }
                 }]
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    src: 'v3.5/AutoChart.Sdk/bin/Release/*.dll',
-                    dest: 'v3.5/dist',
-                    flatten: true,
-                    filter: 'isFile'
-                }]
             }
         },
         nugetpack: {
@@ -74,7 +65,7 @@ module.exports = function(grunt) {
                 src: 'dist/*.nupkg',
 
                 options: {
-                    apiKey: process.env['NUGET_API_KEY']
+                    apiKey: process.env.NUGET_API_KEY
                 }
             }
         }
