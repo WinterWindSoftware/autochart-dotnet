@@ -7,10 +7,12 @@ Currently it only supports reading data back from AutoChart. If you want to send
 The SDK was written for .NET v3.5 and above.
 
 ## Installation via Nuget
-To install AutoChart.Sdk, run the following command in the Package Manager Console.
-`
+To install AutoChart.Sdk, run the following command in the Package Manager Console:
+
+```
 Install-Package AutoChart.Sdk
-`
+```
+
 This will add a reference to the latest version of AutoChart.Sdk.dll and its dependencies to your Visual Studio project.
 
 ## Usage
@@ -30,7 +32,7 @@ var svc = new VisitorService("rk_30946e70413f40a7a38f875f1717b1d5");
 You can access this key in the Account Settings page of the [AutoChart portal](https://portal.autochart.io).
 
 ### Identifying the current visitor in the website
-The [AutoChart JavaScript tracking library](http://autochart.io/docs) generates a unique VisitorId for each visitor on your website. 
+The [AutoChart JavaScript tracking library](https://github.com/AutoChart/autochart-js) generates a unique VisitorId for each visitor on your website. 
 It stores this VisitorId inside a long-life cookie in the client's browser.
 In order to access this VisitorId on the server-side of your ASP.NET website, you can use the AutoChartHttpContext class, which will handle the cookie parsing for you. For example:
 ```csharp
