@@ -81,7 +81,7 @@ module.exports = function(grunt) {
 
     // TASKS
     grunt.registerTask('build', ['copy:assemblyinfo', 'assemblyinfo', 'msbuild']);
-    grunt.registerTask('dist', ['build', 'clean', 'nugetpack']);
+    grunt.registerTask('dist', ['build', 'nunit', 'clean', 'nugetpack']);
     grunt.registerTask('default', ['build']);
 
 };
