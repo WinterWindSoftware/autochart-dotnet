@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                 files: ['v3.5/AutoChart.Sdk/Properties/AssemblyInfo.cs'],
                 info: {
                     title: 'AutoChart.Sdk',
-                    description: 'Client library for fetching data from AutoChart REST API',
+                    description: '<%=pkg.description%>',
                     configuration: 'Release',
                     company: 'Winter Wind Software Ltd',
                     product: 'AutoChart',
@@ -38,6 +38,17 @@ module.exports = function(grunt) {
             }
         },
         copy: {
+            assemblyinfo: {
+                files: [{
+                    expand: true,
+                    cwd: 'v3.5/AutoChart.Sdk/Properties',
+                    src: 'AssemblyInfo.cs.sample',
+                    dest: 'v3.5/AutoChart.Sdk/Properties/',
+                    rename: function(dest, src) {
+                        return dest + src.replace('.sample', '');
+                    }
+                }]
+            },
             dist: {
                 files: [{
                     expand: true,
@@ -47,12 +58,11 @@ module.exports = function(grunt) {
                     filter: 'isFile'
                 }]
             }
-
         }
     });
 
     // TASKS
-    grunt.registerTask('build', ['assemblyinfo', 'msbuild', 'copy']);
+    grunt.registerTask('build', ['copy:assemblyinfo', 'assemblyinfo', 'msbuild', 'copy:dist']);
     grunt.registerTask('default', ['build']);
 
 };

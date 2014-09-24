@@ -1,7 +1,7 @@
 {
-  "name": "autochart-sdk",
+  "name": "autochart-dotnet",
   "version": "0.4.1",
-  "description": ".NET SDK for AutoChart's REST API",
+  "description": ".NET client library for fetching data from AutoChart REST API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

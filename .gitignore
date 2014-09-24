@@ -175,3 +175,4 @@ FakesAssemblies/
 
 *.sublime-project
 *.sublime-workspace
+**/AutoChart.Sdk/Properties/AssemblyInfo.cs
