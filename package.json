@@ -11,7 +11,7 @@
     "url": "https://github.com/WinterWindSoftware/autochart-sdk.git"
   },
   "author": "Paul Swail",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/WinterWindSoftware/autochart-sdk/issues"
   },
