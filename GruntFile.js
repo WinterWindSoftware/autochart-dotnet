@@ -67,6 +67,15 @@ module.exports = function(grunt) {
                     version: '<%=pkg.version%>'
                 }
             }
+        },
+        nugetpush: {
+            dist: {
+                src: 'dist/*.nupkg',
+
+                options: {
+                    apiKey: process.env['NUGET_API_KEY']
+                }
+            }
         }
     });
 
