@@ -6,12 +6,12 @@ Currently it only supports reading data back from AutoChart. If you want to send
 ## Requirements
 The SDK was written for .NET v3.5 and above.
 
-## Installation
-
-1. Download the following 2 files to your local machine:
-    * [AutoChart.Sdk.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/AutoChart.Sdk.dll?raw=true)
-    * [Newtonsoft.Json.dll](https://github.com/WinterWindSoftware/autochart-sdk/blob/master/dotnet/dist/Newtonsoft.Json.dll?raw=true)
-2. Add reference to the AutoChart.Sdk.dll to your project.
+## Installation via Nuget
+To install AutoChart.Sdk, run the following command in the Package Manager Console.
+`
+Install-Package AutoChart.Sdk
+`
+This will add a reference to the AutoChart.Sdk.dll and its dependencies to your Visual Studio project.
 
 ## Usage
 ### Authenticating
