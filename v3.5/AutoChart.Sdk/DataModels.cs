@@ -133,7 +133,6 @@ namespace AutoChart.Sdk
     {
         public DateTime Timestamp { get; set; }
         public string IntentAction { get; set; }
-        public string Url { get; set; }
     }
 
 
