@@ -7,7 +7,7 @@ namespace SdkTests
     [TestFixture]
     public class VisitorServiceTests
     {
-        private const string API_READ_KEY = "rk_30946e70413f40a7a38f875f1717b1d5";
+        private const string API_READ_KEY = System.Configuration.ConfigurationManager.AppSettings["AutoChartReadKey"];
         private const string TEST_API_URL = "https://portal.autochart.io/api/1"; // "http://dev.portal.autochart.io/api/1";
 
         [Test]
