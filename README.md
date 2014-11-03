@@ -59,4 +59,20 @@ var matchingVisitors = svc.GetVisitorsByEmail(email);
 
 ### Using the Visitor Summary Data in your website/app
 Once you've fetched the VisitorSummary data, you can use it however you like simply by accessing the properties on the object.
-In order to see what data is available to you, check out the source for the [DataModels.cs](v3.5/AutoChart.Sdk/DataModels.cs) file.
+To see what data is available to you, check out the source for the [DataModels.cs](v3.5/AutoChart.Sdk/DataModels.cs) file.
+
+### VisitorSummary extension methods
+There are a few common use cases for getting visitor data for which dedicated extension methods exist (v0.5 onwards).
+All examples assume you've already fetched a `VisitorSummary` object from AutoChart. You can view the code for the extension methods [here](v3.5/AutoChart.Sdk/VisitorSummaryExtensions.cs).
+
+```csharp
+// Get the latest 5 vehicles viewed
+int limit = 5;
+var latestVehicleViews = visitor.LatestVehicleViews(limit);
+
+// Get the most recently performed search
+var latestSearch = visitor.LatestSearch();
+
+// Get the visitor's budget - works by looking for the most recent search which specifies cash price or finance criteria
+// TODO
+```
