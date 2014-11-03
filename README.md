@@ -59,4 +59,4 @@ var matchingVisitors = svc.GetVisitorsByEmail(email);
 
 ### Using the Visitor Summary Data in your website/app
 Once you've fetched the VisitorSummary data, you can use it however you like simply by accessing the properties on the object.
-In order to see what data is available to you, check out the source for the [DataModels.cs](dotnet/AutoChart.Sdk/DataModels.cs) file.
+In order to see what data is available to you, check out the source for the [DataModels.cs](v3.5/AutoChart.Sdk/DataModels.cs) file.
