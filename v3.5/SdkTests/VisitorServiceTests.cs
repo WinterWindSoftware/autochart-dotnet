@@ -1,16 +1,20 @@
 ﻿using System;
 using NUnit.Framework;
 using AutoChart.Sdk;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+//Always comment out VisualStudio Assert before committing to git. Only used for VS debugging
+//using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+using Assert = NUnit.Framework.Assert;
 
 namespace SdkTests
 {
-    [TestFixture]
+    [TestFixture, TestClass]
     public class VisitorServiceTests
     {
         private static readonly string API_READ_KEY = System.Configuration.ConfigurationManager.AppSettings["AutoChartReadKey"];
         private const string TEST_API_URL = "https://portal.autochart.io/api/1"; // "http://dev.portal.autochart.io/api/1";
 
-        [Test]
+        [Test, TestMethod]
         public void Test_GetVisitorById()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
@@ -24,7 +28,7 @@ namespace SdkTests
             Assert.IsNotNull(latestLead);
         }
 
-        [Test]
+        [Test, TestMethod]
         public void Test_GetVisitorByEmail()
         {
             var email = "lizziehaynes@zisis.com";
@@ -34,18 +38,18 @@ namespace SdkTests
             Assert.IsTrue(visitors.Length > 0);
         }
 
-        [Test]
+        [Test, TestMethod]
         public void Test_LatestVehicleViews()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
             var visitor = new VisitorService(API_READ_KEY, TEST_API_URL).GetVisitorSummary(visitorId);
             int limit = 4;
             var latestVehicleViews = visitor.LatestVehicleViews(limit);
-            Assert.IsNotEmpty(latestVehicleViews);
-            Assert.LessOrEqual(latestVehicleViews.Count, limit);
+            Assert.IsNotNull(latestVehicleViews);
+            Assert.IsTrue(latestVehicleViews.Count <= limit);
         }
 
-        [Test]
+        [Test, TestMethod]
         public void Test_LatestSearchCriteria()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
@@ -54,7 +58,7 @@ namespace SdkTests
             Assert.IsNotNull(latestSearch);
         }
 
-        [Test]
+        [Test, TestMethod]
         public void Test_GetBudget()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
