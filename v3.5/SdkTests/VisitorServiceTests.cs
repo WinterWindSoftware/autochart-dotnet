@@ -35,7 +35,7 @@ namespace SdkTests
         }
 
         [Test]
-        public void Test_GetLatestVehicleViews()
+        public void Test_LatestVehicleViews()
         {
             var visitorId = "53eb6f208074fd5c417b1620";
             var visitor = new VisitorService(API_READ_KEY, TEST_API_URL).GetVisitorSummary(visitorId);
@@ -43,6 +43,15 @@ namespace SdkTests
             var latestVehicleViews = visitor.LatestVehicleViews(limit);
             Assert.IsNotEmpty(latestVehicleViews);
             Assert.LessOrEqual(latestVehicleViews.Count, limit);
+        }
+
+        [Test]
+        public void Test_LatestSearchCriteria()
+        {
+            var visitorId = "53eb6f208074fd5c417b1620";
+            var visitor = new VisitorService(API_READ_KEY, TEST_API_URL).GetVisitorSummary(visitorId);
+            var latestSearch = visitor.LatestSearch();
+            Assert.IsNotNull(latestSearch);
         }
     }
 }

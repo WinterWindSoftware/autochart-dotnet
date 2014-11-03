@@ -20,5 +20,10 @@ namespace AutoChart.Sdk
         {
             return visitor.VehicleViews.OrderByDescending(v => v.Timestamp).Take(limit).ToList();
         }
+
+        public static VehicleSearch LatestSearch(this VisitorSummary visitor)
+        {
+            return visitor.Searches.OrderByDescending(s => s.Timestamp).FirstOrDefault();
+        }
     }
 }
