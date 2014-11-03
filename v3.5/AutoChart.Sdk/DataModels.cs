@@ -213,28 +213,39 @@ namespace AutoChart.Sdk
         public string Trim { get; set; }
         public string Condition { get; set; }
         public string FuelType { get; set; }
-        public decimal PriceMin { get; set; }
-        public decimal PriceMax { get; set; }
-        public decimal FinanceDownPayment { get; set; }
-        public decimal FinanceInterestRate { get; set; }
-        public decimal FinanceMinMonthlyRepayment { get; set; }
-        public decimal FinanceMaxMonthlyRepayment { get; set; }
-        public int YearMin { get; set; }
-        public int YearMax { get; set; }
-        public int OdometerMin { get; set; }
-        public int OdometerMax { get; set; }
+        public decimal? PriceMin { get; set; }
+        public decimal? PriceMax { get; set; }
+        public decimal? FinanceDownPayment { get; set; }
+        public decimal? FinanceInterestRate { get; set; }
+        public decimal? FinanceMinMonthlyRepayment { get; set; }
+        public decimal? FinanceMaxMonthlyRepayment { get; set; }
+        public int? YearMin { get; set; }
+        public int? YearMax { get; set; }
+        public int? OdometerMin { get; set; }
+        public int? OdometerMax { get; set; }
         public string BodyStyle { get; set; }
         public string Transmission { get; set; }
         public string Color { get; set; }
         public string Location { get; set; }
-        public decimal LocationRadius { get; set; }
+        public decimal? LocationRadius { get; set; }
+    }
+
+
+    public class VisitorBudget
+    {
+        public decimal? PriceMin { get; set; }
+        public decimal? PriceMax { get; set; }
+        public decimal? FinanceDownPayment { get; set; }
+        public decimal? FinanceInterestRate { get; set; }
+        public decimal? FinanceMinMonthlyRepayment { get; set; }
+        public decimal? FinanceMaxMonthlyRepayment { get; set; }
     }
 
     public class Vehicle
     {
         public string RegistrationNumber { get; set; }
-        public int RegistrationYear { get; set; }
-        public int RegistrationMonth { get; set; }
+        public int? RegistrationYear { get; set; }
+        public int? RegistrationMonth { get; set; }
 
         /// <summary>
         /// Title of the vehicle as specified on the website Vehicle Details page
@@ -242,7 +253,7 @@ namespace AutoChart.Sdk
         public string Title { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Trim/Version of the vehicle
@@ -262,7 +273,7 @@ namespace AutoChart.Sdk
         /// <summary>
         /// Mileage of the vehicle
         /// </summary>
-        public int Odometer { get; set; }
+        public int? Odometer { get; set; }
 
         /// <summary>
         /// Automatic/Manual

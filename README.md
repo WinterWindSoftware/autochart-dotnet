@@ -70,9 +70,10 @@ All examples assume you've already fetched a `VisitorSummary` object from AutoCh
 int limit = 5;
 var latestVehicleViews = visitor.LatestVehicleViews(limit);
 
-// Get the most recently performed search
+// Get the most recently performed search. Will return null if no searches performed.
 var latestSearch = visitor.LatestSearch();
 
 // Get the visitor's budget - works by looking for the most recent search which specifies cash price or finance criteria
-// TODO
+// Will return null if no such searches exist.
+var budget = visitor.GetBudget();
 ```
