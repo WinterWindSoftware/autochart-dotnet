@@ -7,7 +7,7 @@ namespace SdkTests
     [TestFixture]
     public class VisitorServiceTests
     {
-        private const string API_READ_KEY = System.Configuration.ConfigurationManager.AppSettings["AutoChartReadKey"];
+        private static readonly string API_READ_KEY = System.Configuration.ConfigurationManager.AppSettings["AutoChartReadKey"];
         private const string TEST_API_URL = "https://portal.autochart.io/api/1"; // "http://dev.portal.autochart.io/api/1";
 
         [Test]
@@ -32,6 +32,17 @@ namespace SdkTests
             var visitors = svc.GetVisitorsByEmail(email);
             Assert.IsNotNull(visitors);
             Assert.IsTrue(visitors.Length > 0);
+        }
+
+        [Test]
+        public void Test_GetLatestVehicleViews()
+        {
+            var visitorId = "53eb6f208074fd5c417b1620";
+            var visitor = new VisitorService(API_READ_KEY, TEST_API_URL).GetVisitorSummary(visitorId);
+            int limit = 4;
+            var latestVehicleViews = visitor.LatestVehicleViews(limit);
+            Assert.IsNotEmpty(latestVehicleViews);
+            Assert.LessOrEqual(latestVehicleViews.Count, limit);
         }
     }
 }
