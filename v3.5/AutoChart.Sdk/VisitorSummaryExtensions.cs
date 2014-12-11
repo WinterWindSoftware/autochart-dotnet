@@ -59,5 +59,10 @@ namespace AutoChart.Sdk
                 || search.Criteria.FinanceMinMonthlyRepayment.HasValue
                 || search.Criteria.FinanceMaxMonthlyRepayment.HasValue;
         }
+
+        public static List<Referrer> GetReferrers(this VisitorSummary visitor)
+        {
+            return visitor.Sessions.Select(s => s.Referrer).Where(r => r != null).ToList();
+        }
     }
 }

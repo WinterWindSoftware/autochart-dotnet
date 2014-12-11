@@ -163,11 +163,7 @@ namespace AutoChart.Sdk
         /// </summary>
         public int ActionCount { get; set; }
 
-        /// <summary>
-        /// Domain which referred user to the site (e.g. "google.co.uk"). 
-        /// Will be "(direct)" if no referrer was set.
-        /// </summary>
-        public string ReferringDomain { get; set; }
+        public Referrer Referrer { get; set; }
 
         /// <summary>
         /// Geo-location of the session, if it could be determined.
@@ -178,6 +174,14 @@ namespace AutoChart.Sdk
         /// Desktop/Tablet/Phone
         /// </summary>
         public string Device { get; set; }
+    }
+
+    public class Referrer 
+    {
+        public string Source { get; set; }
+        public string Term { get; set; }
+        public string Medium { get; set; }
+        public string Url { get; set; }
     }
 
     /// <summary>

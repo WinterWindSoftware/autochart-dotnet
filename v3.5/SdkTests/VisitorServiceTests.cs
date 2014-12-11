@@ -66,5 +66,14 @@ namespace SdkTests
             var budget = visitor.GetBudget();
             Assert.IsNotNull(budget);
         }
+
+        //[Test, TestMethod]
+        //public void Test_GetReferrers()
+        //{
+        //    var visitorId = "5489a4b8fb36031f4a000001";
+        //    var visitor = new VisitorService(API_READ_KEY, TEST_API_URL).GetVisitorSummary(visitorId);
+        //    var referrers = visitor.GetReferrers();
+        //    Assert.IsNotNull(referrers);
+        //}
     }
 }

@@ -76,4 +76,10 @@ var latestSearch = visitor.LatestSearch();
 // Get the visitor's budget - works by looking for the most recent search which specifies cash price or finance criteria
 // Will return null if no such searches exist.
 var budget = visitor.GetBudget();
+
+// Get the external websites which have referred the visitor to the dealer website for each of their visits
+// Returns a list of Referrer objects, ordered oldest to newest.
+// If there are no known referrers (e.g. visitor has only ever directly navigated to the site in their browser), then an empty
+//  list will be returned.
+var referrers = visitor.GetReferrers();
 ```
