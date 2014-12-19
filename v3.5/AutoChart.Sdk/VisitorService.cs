@@ -74,13 +74,13 @@ namespace AutoChart.Sdk
         /// Fetches details from AutoChart for a single visitor using the visitor ID.
         /// </summary>
         /// <param name="visitorId">24 character hex visitorID</param>
-        public VisitorSummary GetVisitorSummary(string visitorId)
+        public VisitorSummary GetVisitorSummary(string visitorId, bool distinctVehicles = false)
         {
             if(string.IsNullOrEmpty(visitorId))
             {
                 throw new ArgumentException("visitorId must be specified");
             }
-            var url = string.Format("{0}/visitors/{1}/summary", BaseUrl, visitorId);
+            var url = string.Format("{0}/visitors/{1}/summary{2}", BaseUrl, visitorId, distinctVehicles ? "?distinctVehicles=true" : "");
             VisitorSummary visitor;
             using (var client = GetWebClient())
             {
