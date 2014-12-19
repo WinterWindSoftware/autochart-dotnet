@@ -74,13 +74,18 @@ namespace AutoChart.Sdk
         /// Fetches details from AutoChart for a single visitor using the visitor ID.
         /// </summary>
         /// <param name="visitorId">24 character hex visitorID</param>
-        public VisitorSummary GetVisitorSummary(string visitorId, bool distinctVehicles = false)
+        /// <param name="fetchOptions">Options for specifying how data is returned</param>
+        public VisitorSummary GetVisitorSummary(string visitorId, VisitorFetchOptions fetchOptions = null)
         {
+            if (fetchOptions == null)
+            {
+                fetchOptions = new VisitorFetchOptions();
+            }
             if(string.IsNullOrEmpty(visitorId))
             {
                 throw new ArgumentException("visitorId must be specified");
             }
-            var url = string.Format("{0}/visitors/{1}/summary{2}", BaseUrl, visitorId, distinctVehicles ? "?distinctVehicles=true" : "");
+            var url = string.Format("{0}/visitors/{1}/summary{2}", BaseUrl, visitorId, fetchOptions.DistinctVehicles ? "?distinctVehicles=true" : "");
             VisitorSummary visitor;
             using (var client = GetWebClient())
             {
@@ -125,6 +130,11 @@ namespace AutoChart.Sdk
             _webClient.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
             return _webClient;
         }
+    }
+
+    public class VisitorFetchOptions
+    {
+        public bool DistinctVehicles = true;
     }
 
     internal class ApiResultWrapper<T>

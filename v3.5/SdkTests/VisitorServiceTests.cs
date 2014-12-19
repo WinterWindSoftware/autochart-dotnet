@@ -3,8 +3,8 @@ using NUnit.Framework;
 using AutoChart.Sdk;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 //Always comment out VisualStudio Assert before committing to git. Only used for VS debugging
-//using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
-using Assert = NUnit.Framework.Assert;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+//using Assert = NUnit.Framework.Assert;
 
 namespace SdkTests
 {
