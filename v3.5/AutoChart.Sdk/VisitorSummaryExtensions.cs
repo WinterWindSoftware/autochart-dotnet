@@ -38,8 +38,8 @@ namespace AutoChart.Sdk
                         PriceMax = search.Criteria.PriceMax,
                         FinanceDownPayment = search.Criteria.FinanceDownPayment,
                         FinanceInterestRate = search.Criteria.FinanceInterestRate,
-                        FinanceMinMonthlyRepayment = search.Criteria.FinanceMinMonthlyRepayment,
-                        FinanceMaxMonthlyRepayment = search.Criteria.FinanceMaxMonthlyRepayment
+                        FinanceMonthlyPaymentMin = search.Criteria.FinanceMonthlyPaymentMin,
+                        FinanceMonthlyPaymentMax = search.Criteria.FinanceMonthlyPaymentMax
                     };
                 }
             }
@@ -56,8 +56,8 @@ namespace AutoChart.Sdk
             return search.Criteria.PriceMin.HasValue 
                 || search.Criteria.PriceMax.HasValue
                 || search.Criteria.FinanceDownPayment.HasValue
-                || search.Criteria.FinanceMinMonthlyRepayment.HasValue
-                || search.Criteria.FinanceMaxMonthlyRepayment.HasValue;
+                || search.Criteria.FinanceMonthlyPaymentMin.HasValue
+                || search.Criteria.FinanceMonthlyPaymentMax.HasValue;
         }
 
         public static List<Referrer> GetReferrers(this VisitorSummary visitor)

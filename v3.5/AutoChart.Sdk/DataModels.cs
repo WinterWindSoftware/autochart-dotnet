@@ -220,8 +220,8 @@ namespace AutoChart.Sdk
         public decimal? PriceMax { get; set; }
         public decimal? FinanceDownPayment { get; set; }
         public decimal? FinanceInterestRate { get; set; }
-        public decimal? FinanceMinMonthlyRepayment { get; set; }
-        public decimal? FinanceMaxMonthlyRepayment { get; set; }
+        public decimal? FinanceMonthlyPaymentMin { get; set; }
+        public decimal? FinanceMonthlyPaymentMax { get; set; }
         public int? YearMin { get; set; }
         public int? YearMax { get; set; }
         public int? OdometerMin { get; set; }
@@ -240,8 +240,8 @@ namespace AutoChart.Sdk
         public decimal? PriceMax { get; set; }
         public decimal? FinanceDownPayment { get; set; }
         public decimal? FinanceInterestRate { get; set; }
-        public decimal? FinanceMinMonthlyRepayment { get; set; }
-        public decimal? FinanceMaxMonthlyRepayment { get; set; }
+        public decimal? FinanceMonthlyPaymentMin { get; set; }
+        public decimal? FinanceMonthlyPaymentMax { get; set; }
     }
 
     public class Vehicle
