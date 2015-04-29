@@ -55,6 +55,11 @@ namespace AutoChart.Sdk
         public List<VehicleView> VehicleViews { get; set; }
 
         /// <summary>
+        /// List of different vehicle actions this visitor has performed.
+        /// </summary>
+        public List<VehicleAction> VehicleActions { get; set; }
+
+        /// <summary>
         /// Contact info provided in the most recent lead submitted by this visitor.
         /// </summary>
         public ContactInfo Contact { get; set; }
@@ -198,6 +203,27 @@ namespace AutoChart.Sdk
         /// Time this vehicle was viewed
         /// </summary>
         public DateTime Timestamp { get; set; }
+    }
+
+    /// <summary>
+    /// Record of a visitor performing an action related to a single vehicle
+    /// </summary>
+    public class VehicleAction
+    {
+        /// <summary>
+        /// Vehicle that was viewed.
+        /// </summary>
+        public Vehicle Vehicle { get; set; }
+
+        /// <summary>
+        /// Time this vehicle was viewed
+        /// </summary>
+        public DateTime Timestamp { get; set; }
+
+        /// <summary>
+        /// Type of action performed.
+        /// </summary>
+        public string ActionCategory { get; set; }
     }
 
     public class VehicleSearch
