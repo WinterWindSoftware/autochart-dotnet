@@ -1,6 +1,6 @@
 {
   "name": "autochart-dotnet",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": ".NET client library for fetching data from AutoChart REST API",
   "main": "index.js",
   "scripts": {
